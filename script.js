@@ -11,6 +11,7 @@ function searchMeal(e) {
     single_mealEl.innerHTML = '';
 
     const term = search.value;
+    
 
     if (term.trim()) {
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
@@ -24,13 +25,13 @@ function searchMeal(e) {
                 } else {
                     mealsEl.innerHTML = data.meals.map((meal) => {
                         return (
-                            ` <div class="meal">
-                            <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
-                            <div class="meal-info" data-mealID="${meal.idMeal}">
-                                <h3>${meal.strMeal}</h3>
+                            `<div class="meal">
+                                <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+                                <div class="meal-info" data-mealID="${meal.idMeal}">
+                                    <h3>${meal.strMeal}</h3>
+                                </div>
                             </div>
-                        </div>
-                        `
+                            `
                         )
                     }).join('');
                 }
